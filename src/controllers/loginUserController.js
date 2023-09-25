@@ -4,7 +4,7 @@ const jwt = require('jsonwebtoken');
 
 
 async function loginUser(req, res) {
-    const { name, password } = req.body;
+    const { email, password } = req.body;
 
     try {
         // Valida se os campos estão preenchidos

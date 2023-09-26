@@ -88,10 +88,3 @@ Exemplo de solicitação para alterar a senha:
 - [mongoose](https://www.npmjs.com/package/mongoose): Para modelagem de dados MongoDB.
 - [nodemon](https://www.npmjs.com/package/nodemon): Para reiniciar automaticamente o servidor durante o desenvolvimento.
 
-## Licença
-
-Este projeto está licenciado sob a Licença ISC. Consulte o arquivo [LICENSE](LICENSE) para obter detalhes.
-
----
-
-Lembre-se de personalizar este README de acordo com as necessidades específicas do seu projeto e adicionar informações adicionais, como endpoints, autenticação e outras funcionalidades específicas da sua API.

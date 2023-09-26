@@ -3,7 +3,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 
 async function changePassword(req, res) {
-    const {userId, currentPassword, newPassword } = req.body;
+    const {userId, newPassword } = req.body;
 
     try {
 
@@ -13,14 +13,7 @@ async function changePassword(req, res) {
         if (!user) {
             return res.status(404).json({error: "Usuario não encontrado"});
         }
-
-        // Confere se a senha atual é correta
-        const passwordMatch = await bcrypt.compare(currentPassword, user.password);
-
-        if (!passwordMatch) {
-            return res.status(422).json({error: "Senha atual incorreta" })
-        }
-
+        
         // Hash da nova senha
         const hashedPassword = await bcrypt.hash(newPassword, 10);
 

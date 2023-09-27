@@ -6,13 +6,14 @@ const router = express.Router();
 // Importar a função (processamento da requisição) do controller
 const createUser  = require('../controllers/createUserController');
 const loginUser = require('../controllers/loginUserController');
-const changePassword = require('../controllers/changePasswordController')
-
+const changeInformation = require('../controllers/changeInformationController');
+const deleteUser = require('../controllers/deleteUserController')
 
 // Criar o endpoint que serão acessados a partir dos metodos HTTP
 router.post('/register', createUser);
 router.post('/login', loginUser);
-router.post('/changePassword', changePassword)
+router.put('/changeInformation', changeInformation)
+router.delete('/deleteUser', deleteUser)
 
 module.exports = router;
 

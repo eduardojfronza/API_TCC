@@ -9,9 +9,10 @@ async function changeInformation(req,res) {
         //Encontrar o usuario pelo ID
         const user = await User.findById(userId)
         
+        //----------------VALIDAÇÕES--------------//
         if(!user) {
             return res.status(404).json({error: "Usuario não encontrado!"});
-        };
+        } 
         //----------------NOME--------------//
         // Alterar o nome
         user.name = newName
@@ -27,17 +28,18 @@ async function changeInformation(req,res) {
         user.email = newEmail
 
         //----------------SENHA--------------//
-        // Hash da nova senha
-        const hashedPassword = await bcrypt.hash(newPassword, 10);
+            // Hash da nova senha
+            const hashedPassword = await bcrypt.hash(newPassword, 10);
 
-        // Atualiza a senha do usuario no banco de dadods
-        user.password = hashedPassword;
-        await user.save();
+            // Atualiza a senha do usuario no banco de dadods
+            user.password = hashedPassword;
+            await user.save();
 
-        // Gera um novo token
-        const secret = process.env.SECRET;
-        const token = jwt.sign({ id: user.id }, secret);
-
+            // Gera um novo token
+            const secret = process.env.SECRET;
+            const token = jwt.sign({ id: user.id }, secret);
+        
+       
         res.status(200).json({ success: true, message: 'Dados alterados com sucesso, os dados agora são:', token, newName, newEmail, newPassword   })
     }
 

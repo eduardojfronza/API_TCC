@@ -2,7 +2,7 @@
 ---
 
 # API de Autenticação de Usuário
-Link da api --> https://api-tcc-xi.vercel.app
+Link da api --> https://api-tcc-xi.vercel.app<br/><br/>
 Esta é a documentação da API de autenticação de usuário para o projeto "Criptomoedas em foco", vulgo trabalho de conclusão de curso.
 
 ## Descrição

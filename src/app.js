@@ -16,7 +16,7 @@ const app = express()
 app.use(express.json());
 // Habilitar o recebimento de requests em formato JSON
 app.use(cors({
-    origin: 'http://localhost:3000',
+    origin: 'https://criptomoeada-em-foco-2-0.vercel.app',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
   }));

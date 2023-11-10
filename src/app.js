@@ -17,6 +17,7 @@ app.use(express.json());
 // Habilitar o recebimento de requests em formato JSON
 app.use(cors({
     origin: '*',
+    allowedHeaders: '*',
     methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
     credentials: true
   }));

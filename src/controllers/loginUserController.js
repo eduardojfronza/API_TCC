@@ -14,17 +14,11 @@ async function loginUser(req, res) {
 
         // Confere se o usuario existe
         const user = await User.findOne({ email });
-
-        // Valida se o usario existe, se não existe devole um erro
-        if (!user) {
-            return res.status(422).json({error: "Usuario não encontrado!"})
-        }
-
         //Se o usuario existir, vai conferir se as senhas são as mesmas
         const passwordMatch =  await bcrypt.compare(password, user.password);
 
-        if (!passwordMatch) {
-            return res.status(422).json({error: "Senha invalida!" })
+        if (!passwordMatch || !user) {
+            return res.status(422).json({error: "Usuario ou senha invalido!" })
         }
 
         // Gera um JWT token para o usuario
@@ -33,6 +27,7 @@ async function loginUser(req, res) {
 
         // Se tudo der certo devolve uma mensagem de sucesso
         res.status(200).json({success: true, message: "Autenticação feita com sucesso!", token, user});
+        
     }
 
     catch (err) {
